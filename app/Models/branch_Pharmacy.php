@@ -5,17 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class head_Pharmacy extends Model
+class branch_Pharmacy extends Model
 {
+    use HasFactory;
     protected $fillable = [
         'name',
         'address',
-        'owner',
+        'manager',
         'phone',
         'reg_num',
+        'phar_id'
      ];
-    // public function user(){
-    //     return $this->belongsTo(User::class , 'user_id');
-    // }
-    use HasFactory;
+     public function branch(){
+        return $this->belongsTo(head_Pharmacy::class , 'phar_id');
+    }
+
 }

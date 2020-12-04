@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateHeadPharmaciesTable extends Migration
+class CreateManagerPharmaciesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateHeadPharmaciesTable extends Migration
      */
     public function up()
     {
-        Schema::create('head__pharmacies', function (Blueprint $table) {
+        Schema::create('manager_pharmacies', function (Blueprint $table) {
             $table->id();
             $table->string('name',255)->nullable();
             $table->string('address',500)->nullable();
             $table->string('phone',255)->nullable();
-            $table->string('Owner',255)->nullable() ;
-            $table->string('reg_num',255)->nullable();
+            $table->string('email',255)->nullable();
+            $table->integer('branch_id');
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ class CreateHeadPharmaciesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('head__pharmacies');
+        Schema::dropIfExists('manager_pharmacies');
     }
 }
